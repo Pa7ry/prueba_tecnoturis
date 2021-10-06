@@ -12,29 +12,10 @@ export class AuthService {
   constructor() { }
 
   createUser(email: string, password: string) {
-    createUserWithEmailAndPassword(this.auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
   singIn(email: string, password: string) {
-    signInWithEmailAndPassword(this.auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+    return signInWithEmailAndPassword(this.auth, email, password)
   }
 }

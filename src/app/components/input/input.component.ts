@@ -13,9 +13,12 @@ export class InputComponent implements OnInit {
   @Input() placeholder: string = '';
   @Input() inputType: string = '';
 
-  ngOnInit(): void {
+  value: string = '';
 
-    console.log(this.inputType);
+  ngOnInit(): void {}
+
+  updateValue(inputValue: string) {
+    this.value = inputValue;
   }
 
 }

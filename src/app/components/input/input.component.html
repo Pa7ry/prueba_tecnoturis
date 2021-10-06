@@ -1,4 +1,4 @@
 <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>{{ label }}</mat-label>
-    <input matInput [type]=inputType>
+    <input matInput #inputValue [type]=inputType (blur)="updateValue(inputValue.value)">
 </mat-form-field>

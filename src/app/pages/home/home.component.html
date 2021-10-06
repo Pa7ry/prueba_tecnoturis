@@ -1,3 +1,15 @@
-<app-input [label]="user"></app-input>
-<app-input [label]="password" [inputType]="'password'"></app-input>
-<app-input [label]="repeatPassword" [inputType]="'password'"></app-input>
+
+<div class="container">
+    <div>
+       <button mat-button (click)="register=false">Login</button> 
+       <button mat-button (click)="register=true">Registro</button> 
+    </div>
+    <mat-card class="form-card">
+        <app-input [label]="user" #email></app-input>
+        <app-input [label]="password" [inputType]="'password'" #pass></app-input>
+        <!-- <app-input *ngIf="register" [label]="repeatPassword" [inputType]="'password'" #repeatPass></app-input> -->
+        <span class="error">{{ error }}</span>
+        
+        <app-button [message]="bntMessage" (click)="sendData(email.value, pass.value)"></app-button>
+    </mat-card>
+</div>

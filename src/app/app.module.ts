@@ -9,6 +9,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { HotelsComponent } from './pages/hotels/hotels.component';
 
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ButtonComponent } from './components/button/button/button.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,15 @@ import { MatInputModule } from '@angular/material/input';
     InputComponent,
     HomeComponent,
     HotelsComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatButtonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

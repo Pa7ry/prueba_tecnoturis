@@ -1,0 +1,23 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('./../../../assets/beach.jpg') no-repeat;
+    background-size: cover;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    padding: 2.5rem 0;
+}
+
+.error {
+    color: red;
+    padding-bottom: 2rem;
+}
