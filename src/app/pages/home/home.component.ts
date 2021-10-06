@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HomeComponent implements OnInit {
   
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   user: string = 'Email';
   password: string = 'Contraseña';
@@ -24,9 +25,7 @@ export class HomeComponent implements OnInit {
   createUser(email: string, password: string, repetaPassword?: string) {
     // if(password === repetaPassword) {
       this.auth.createUser(email, password)
-        .then(() => {
-          console.log('usuario creado');
-        })
+        .then(() => this.router.navigate(['hotels']))
         .catch((error) => this.error = error.message);
     // } else {
     //   this.error = "Las contraseñas no coinciden"
@@ -35,9 +34,7 @@ export class HomeComponent implements OnInit {
 
   singIn(email: string, password: string) {
     this.auth.singIn(email, password)
-      .then(() => {
-        console.log('usuario logeado');
-      })
+      .then(() => this.router.navigate(['hotels']))
       .catch((error) => this.error = error.message);
   }
 
