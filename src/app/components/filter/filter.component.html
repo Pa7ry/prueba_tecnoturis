@@ -1,0 +1,24 @@
+<mat-card>
+    <form [formGroup]="filterForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Select</mat-label>
+            <input matInput #hotelName (keyup)="hotelName.value.length > 2 && searchHotel(hotelName.value)">
+            <mat-select *ngIf="hotelList.length" formControlName="hotelIds">
+                <mat-option *ngFor="let hotel of hotelList" [value]="hotel.hotelIds">{{ hotel.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nº de adultos</mat-label>
+            <input matInput inputType="number" formControlName="adults">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nº de habitaciones</mat-label>
+            <input matInput inputType="number" formControlName="roomQuantity">
+        </mat-form-field>
+    
+        <app-button message="Buscar" (click)="search()"></app-button>
+    </form>
+</mat-card>
+

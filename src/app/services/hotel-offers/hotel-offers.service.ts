@@ -6,8 +6,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class HotelOffersService {
 
-  url: string = 'https://test.api.amadeus.com/v3';
-  token: string = '';
+  urlV1: string = 'https://test.api.amadeus.com/v1';
+  urlV3: string = 'https://test.api.amadeus.com/v3';
   
 
   constructor(private http: HttpClient) { }
@@ -21,13 +21,18 @@ export class HotelOffersService {
     const headers = new HttpHeaders()
       .append('Content-type', 'application/x-www-form-urlencoded')
 
-    return this.http.post('https://test.api.amadeus.com/v1/security/oauth2/token', body, { headers: headers })
+    return this.http.post(this.urlV1 + '/security/oauth2/token', body, { headers: headers })
   }
 
+  getHotelName(params: any, token: string) {
+    let headers: HttpHeaders;
+    headers = new HttpHeaders().set('Authorization', `Bearer ${ token }`);
+    return this.http.get(this.urlV1 + '/reference-data/locations/hotel', { headers: headers, params: params });
+  }
 
   getHotelOffers(params: any, token: string) {
     let headers: HttpHeaders;
       headers = new HttpHeaders().set('Authorization', `Bearer ${ token }`);
-    return this.http.get(this.url + '/shopping/hotel-offers', { headers: headers, params: params });
+    return this.http.get(this.urlV3 + '/shopping/hotel-offers', { headers: headers, params: params });
   }
 }

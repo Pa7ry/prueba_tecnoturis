@@ -9,20 +9,21 @@ import { HotelOffersModel } from 'src/app/services/hotel-offers/models/hotel.mod
 })
 export class HotelsComponent implements OnInit {
 
-  private token: string = '';
-
   constructor(private hotelOffersSvc: HotelOffersService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  selectHotel(event: any) {
+    console.log('event', event)
     const params: HotelOffersModel = {
-      hotelIds: 'HLLON101',
-      adults: 1,
+      hotelIds: event.hotelIds,
+      adults: event.adults,
+      roomQuantity: event.roomQuantity,
     }
 
     this.hotelOffersSvc.getToken().subscribe((res: any) => {
       this.hotelOffersSvc.getHotelOffers(params, res.access_token)?.subscribe(res => console.log(res));
     });
-
   }
 
 }
