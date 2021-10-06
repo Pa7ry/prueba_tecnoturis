@@ -26,10 +26,7 @@ export class FilterComponent implements OnInit {
   searchHotel(name: string) {
     this.hotelOffersSvc.getToken().subscribe((res: any) => {
       this.hotelOffersSvc.getHotelName({ keyword: name, subType: 'HOTEL_GDS'}, res.access_token)
-        ?.subscribe((res: any) => {
-          this.hotelList = res.data
-          console.log('res', res);
-        });
+        ?.subscribe((res: any) => this.hotelList = res.data);
     });
   }
 

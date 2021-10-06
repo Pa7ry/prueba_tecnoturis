@@ -1,0 +1,17 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col" *ngFor="let column of columns">{{ column.name }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hotel of hotels">
+      <td>
+        {{ hotel.hotel.name }}
+      </td>
+      <td>{{ hotel.offers[0].guests.adults }}</td>
+      <td>{{ hotel.offers[0].roomQuantity }}</td>
+      <td>{{ hotel.offers[0].price.base }}</td>
+    </tr>
+    </tbody>
+  </table>

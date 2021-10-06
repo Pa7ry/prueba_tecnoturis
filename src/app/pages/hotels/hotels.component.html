@@ -1,1 +1,4 @@
-<app-filter (filter)="selectHotel($event)"></app-filter>
+<div class="content">
+    <app-filter class="filter" (filter)="selectHotel($event)"></app-filter>
+    <app-table class="table" [hotels]="hotels"></app-table>
+</div>

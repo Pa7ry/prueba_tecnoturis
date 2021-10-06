@@ -7,7 +7,6 @@
     <mat-card class="form-card">
         <app-input [label]="user" #email></app-input>
         <app-input [label]="password" [inputType]="'password'" #pass></app-input>
-        <!-- <app-input *ngIf="register" [label]="repeatPassword" [inputType]="'password'" #repeatPass></app-input> -->
         <span class="error">{{ error }}</span>
         
         <app-button [message]="bntMessage" (click)="sendData(email.value, pass.value)"></app-button>

@@ -22,14 +22,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createUser(email: string, password: string, repetaPassword?: string) {
-    // if(password === repetaPassword) {
+  createUser(email: string, password: string) {
       this.auth.createUser(email, password)
         .then(() => this.router.navigate(['hotels']))
         .catch((error) => this.error = error.message);
-    // } else {
-    //   this.error = "Las contraseñas no coinciden"
-    // }
   }
 
   singIn(email: string, password: string) {
@@ -38,9 +34,8 @@ export class HomeComponent implements OnInit {
       .catch((error) => this.error = error.message);
   }
 
-  sendData(email: string, password: string, repetaPassword?: string) {
-    console.log(email, password, repetaPassword)
-    this.register ? this.createUser(email, password, repetaPassword) : this.singIn(email, password);
+  sendData(email: string, password: string) {
+    this.register ? this.createUser(email, password) : this.singIn(email, password);
   }
 
 }

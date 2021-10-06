@@ -1,5 +1,5 @@
 export interface HotelOffersResponseModel {
-  data: Datum[];
+  data?: Datum[];
 }
 
 interface Datum {

@@ -8,13 +8,14 @@ import { HotelOffersModel } from 'src/app/services/hotel-offers/models/hotel.mod
   styleUrls: ['./hotels.component.scss']
 })
 export class HotelsComponent implements OnInit {
-
+  
   constructor(private hotelOffersSvc: HotelOffersService) { }
+  
+  hotels: any[] = [];
 
   ngOnInit(): void { }
 
   selectHotel(event: any) {
-    console.log('event', event)
     const params: HotelOffersModel = {
       hotelIds: event.hotelIds,
       adults: event.adults,
@@ -22,7 +23,7 @@ export class HotelsComponent implements OnInit {
     }
 
     this.hotelOffersSvc.getToken().subscribe((res: any) => {
-      this.hotelOffersSvc.getHotelOffers(params, res.access_token)?.subscribe(res => console.log(res));
+      this.hotelOffersSvc.getHotelOffers(params, res.access_token)?.subscribe((res: any) => this.hotels = res.data);
     });
   }
 

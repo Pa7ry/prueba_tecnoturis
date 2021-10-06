@@ -1,5 +1,5 @@
 <mat-card>
-    <form [formGroup]="filterForm">
+    <form [formGroup]="filterForm" class="filter">
         <mat-form-field appearance="fill">
             <mat-label>Select</mat-label>
             <input matInput #hotelName (keyup)="hotelName.value.length > 2 && searchHotel(hotelName.value)">

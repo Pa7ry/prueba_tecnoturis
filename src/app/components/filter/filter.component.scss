@@ -1,0 +1,9 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+
+    app-button {
+        align-self: center;
+    }
+}
